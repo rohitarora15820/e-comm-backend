@@ -25,6 +25,10 @@
   background-color: skyblue;
 }
 
+.nav-right{
+  text-align: right;
+}
+
 .footer {
   position:absolute;
   bottom: 0;
@@ -35,6 +39,11 @@
 
 .register{
   margin-left: 30%;
+}
+
+.login{
+  margin-left: 30%;
+  margin-top: 100px;
 }
 
 .inputBox {
@@ -52,6 +61,12 @@
   background-color: skyblue;
   border: 1px solid;
   cursor: pointer;
+}
+.logo{
+  width:45px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
