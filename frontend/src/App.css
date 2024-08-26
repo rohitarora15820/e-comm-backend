@@ -92,6 +92,13 @@
   margin: 0;
 }
 
+.search-input-box{
+  margin: 20px;
+  padding: 10px;
+  width: 300px;
+  border: 1px solid skyblue;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

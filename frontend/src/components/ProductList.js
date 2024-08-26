@@ -30,9 +30,29 @@ const ProductList = () => {
     }
   };
 
+  const triggerSearchCriteria  =  async (event) => {
+    let key=event.target.value;
+    console.log("key: " + key);
+  
+    if(key){
+      let result =await fetch(`http://localhost:5000/search/${key}`);
+      result=await result.json();
+ 
+      if(result){
+        setProduct(result)
+      }
+    }
+    else{
+      fetchProducts();
+    }
+
+
+  }
+
   return (
     <div className="product-list">
       <h1>Product List</h1>
+      <input type="text" placeholder="Search Products..." className="search-input-box" onChange={triggerSearchCriteria}/>
       <ul>
         <li>S.no</li>
         <li>Name</li>
@@ -44,7 +64,7 @@ const ProductList = () => {
       {product.length > 0 ? (
         product.map((item, index) => {
           return (
-            <ul>
+            <ul key={item._id}>
               <li>{index + 1}</li>
               <li>{item.name}</li>
               <li>{item.price}</li>
