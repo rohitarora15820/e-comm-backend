@@ -43,7 +43,7 @@
 
 .login{
   margin-left: 30%;
-  margin-top: 100px;
+
 }
 
 .inputBox {
@@ -68,6 +68,30 @@
   margin-top: 10px;
   margin-left: 20px;
 }
+
+.invalid-input{
+  color: red;
+  margin-left: 20px;
+  margin-top: -20px;
+  display: block;
+}
+
+.product-list{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.product-list ul li{
+  display: inline-block;
+  border: #61dafb solid 1px;
+  width: 150px;
+  padding: 10px;
+}
+
+.product-list ul{
+  margin: 0;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
