@@ -23,10 +23,16 @@ const AddProduct = () => {
       body: JSON.stringify({ name, price, category, userId, company }),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
       },
     });
     result = await result.json();
-    console.log(result);
+    if (result) {
+      navigate(`/`);
+      alert("Product Added Successfully");
+    } else {
+      alert("Error adding product");
+    }
   };
 
   return (
@@ -41,7 +47,9 @@ const AddProduct = () => {
         }}
         placeholder="Enter Name"
       />
-      {error && !name && <span className="invalid-input">Enter valid name</span>}
+      {error && !name && (
+        <span className="invalid-input">Enter valid name</span>
+      )}
       <input
         className="inputBox"
         type="text"
@@ -51,7 +59,9 @@ const AddProduct = () => {
         }}
         placeholder="Enter Price"
       />
-      {error && !price && <span className="invalid-input">Enter valid price</span>}
+      {error && !price && (
+        <span className="invalid-input">Enter valid price</span>
+      )}
       <input
         className="inputBox"
         type="text"
@@ -61,7 +71,9 @@ const AddProduct = () => {
         }}
         placeholder="Enter Category"
       />
-      {error && !category && <span className="invalid-input">Enter valid category</span>}
+      {error && !category && (
+        <span className="invalid-input">Enter valid category</span>
+      )}
       <input
         className="inputBox"
         type="text"
@@ -71,7 +83,9 @@ const AddProduct = () => {
         }}
         placeholder="Enter Company"
       />
-      {error && !company && <span className="invalid-input">Enter valid company</span>}
+      {error && !company && (
+        <span className="invalid-input">Enter valid company</span>
+      )}
 
       <button className="registerButton" onClick={triggerProductCreation}>
         Add Product

@@ -13,7 +13,15 @@ const UpdateProduct = () => {
   }, []);
 
   const getProductById = async () => {
-    let result = await fetch(`http://localhost:5000/product/${params.id}`);
+    let result = await fetch(`http://localhost:5000/product/${params.id}`,
+
+      {
+        headers: {
+          "Content-Type": "application/json",
+           Authorization:`bearer ${JSON.parse(localStorage.getItem("token"))}`
+        },
+      }
+    );
     result = await result.json();
     setName(result.name);
     setPrice(result.price);
@@ -24,14 +32,14 @@ const UpdateProduct = () => {
   const navigate = useNavigate();
 
   const triggerUpdate = async () => {
-    let result = await fetch(
-      `http://localhost:5000/product/${params.id}`,
-  {
-        method: "PUT",
-        body: JSON.stringify({name, price, category, company}),
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    let result = await fetch(`http://localhost:5000/product/${params.id}`, {
+      method: "PUT",
+      body: JSON.stringify({ name, price, category, company }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
+    });
     result = await result.json();
     if (result) {
       navigate(`/`);

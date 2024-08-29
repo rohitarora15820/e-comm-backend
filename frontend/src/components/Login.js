@@ -25,8 +25,9 @@ const Login = () => {
 
     result = await result.json();
     console.log(result);
-    if (result.name) {
-        localStorage.setItem("user", JSON.stringify(result));
+    if (result.token) {
+        localStorage.setItem("user", JSON.stringify(result.result));
+        localStorage.setItem("token", JSON.stringify(result.token));
       alert("Login Successfully");
       setEmail("");
       setPassword("");

@@ -22,9 +22,7 @@ const Nav = () => {
         <li>
           <Link to="/update">Update Product</Link>
         </li>
-        <li>
-          <Link to="/delete">Delete Product</Link>
-        </li>
+    
         <li> <Link onClick={triggerLogout} to="/register">Logout ({JSON.parse(auth).name})</Link></li> 
    
       </ul>:
